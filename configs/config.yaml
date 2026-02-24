@@ -1,0 +1,28 @@
+# Project configuration
+project:
+  name: aiml-cybersecurity
+  phase: 1
+
+paths:
+  data_raw: data/raw
+  data_processed: data/processed
+  models: models
+  reports: reports
+
+project1_nids:
+  dataset: CICIDS2017  # or NSL-KDD
+  model_types:
+    - random_forest
+    - xgboost
+    - cnn_1d
+    - autoencoder
+  alert_threshold: 0.85
+
+project4_phishing:
+  dataset: phishtank  # or kaggle
+  model_types:
+    - tfidf_logistic
+    - distilbert
+    - url_features
+    - visual_similarity
+  fusion_method: meta_classifier
