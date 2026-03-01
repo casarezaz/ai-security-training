@@ -1,0 +1,11 @@
+/Users/angie/Library/LaunchAgents/com.aiml-cybersecurity.daily-scan.plist
+/Users/angie/Library/LaunchAgents/com.google.keystone.agent.plist
+/Users/angie/Library/LaunchAgents/com.google.keystone.xpcservice.plist
+/Library/LaunchAgents/at.obdev.littlesnitch.agent.plist
+/Library/LaunchAgents/com.google.keystone.agent.plist
+/Library/LaunchAgents/com.google.keystone.xpcservice.plist
+/Library/LaunchDaemons/at.obdev.littlesnitch.daemon.plist
+/Library/LaunchDaemons/com.docker.socket.plist
+/Library/LaunchDaemons/com.docker.vmnetd.plist
+/Library/LaunchDaemons/com.google.GoogleUpdater.wake.system.plist
+/Library/LaunchDaemons/com.google.keystone.daemon.plist

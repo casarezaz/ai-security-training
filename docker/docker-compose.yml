@@ -1,0 +1,77 @@
+# =============================================================================
+# Docker Compose — Security Tools Container
+# Usage:
+#   docker compose up -d         # Start container in background
+#   docker compose exec sectools bash   # Open a shell
+#   docker compose down          # Stop and remove
+# =============================================================================
+services:
+  sectools:
+    build:
+      context: .
+      dockerfile: Dockerfile.sectools
+    container_name: aiml-sectools
+    hostname: sectools-lab
+
+    # Mount project directories (read-only where possible)
+    volumes:
+      - ../data:/home/analyst/workspace/data           # Read/write for pcaps, datasets
+      - ../reports:/home/analyst/workspace/reports      # Write scan results here
+      - ../configs:/home/analyst/workspace/configs:ro   # Read-only configs
+      - ../notebooks:/home/analyst/workspace/notebooks:ro
+
+    # Network: isolated by default
+    # Use "host" only when you need to scan your own lab network
+    network_mode: bridge
+
+    # Resource limits (prevent runaway processes)
+    deploy:
+      resources:
+        limits:
+          cpus: "4"
+          memory: 4G
+        reservations:
+          cpus: "1"
+          memory: 512M
+
+    # Security options
+    security_opt:
+      - no-new-privileges:true    # Prevent privilege escalation
+
+    # Drop all capabilities, add back only what's needed
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_RAW       # Required for nmap, scapy, tcpdump
+      - NET_ADMIN     # Required for network interface config
+
+    # Keep container running for interactive use
+    stdin_open: true
+    tty: true
+
+    # Environment
+    environment:
+      - TERM=xterm-256color
+      - YARA_RULES=/opt/yara-rules
+
+  # ── Optional: Neo4j for threat intel knowledge graph ──
+  neo4j:
+    image: neo4j:5-community
+    container_name: aiml-neo4j
+    ports:
+      - "7474:7474"   # Browser UI
+      - "7687:7687"   # Bolt protocol
+    volumes:
+      - neo4j_data:/data
+    environment:
+      - NEO4J_AUTH=neo4j/changeme   # Change this password!
+      - NEO4J_PLUGINS=["apoc"]
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    profiles:
+      - graph    # Only starts with: docker compose --profile graph up
+
+volumes:
+  neo4j_data:

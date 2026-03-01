@@ -1,0 +1,78 @@
+# =============================================================================
+# AI/ML x Cybersecurity — Containerized Security Tools
+# All CLI security tools run inside this container, isolated from the host.
+# =============================================================================
+FROM ubuntu:22.04
+
+LABEL maintainer="aiml-cyber-project"
+LABEL description="Isolated security tools for AI/ML x Cybersecurity labs"
+
+# Prevent interactive prompts during build
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# ── System packages & build deps ────────────────────────────────────────────
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    # Core utilities
+    curl wget git ca-certificates gnupg lsb-release \
+    software-properties-common build-essential \
+    # Python (for tools that need it)
+    python3 python3-pip python3-dev \
+    # Network analysis
+    nmap \
+    tshark \
+    tcpdump \
+    net-tools \
+    iputils-ping \
+    dnsutils \
+    whois \
+    # Malware analysis
+    yara \
+    ssdeep \
+    libfuzzy-dev \
+    # Forensics
+    binutils \
+    file \
+    hexedit \
+    # Misc
+    jq \
+    unzip \
+    && rm -rf /var/lib/apt/lists/*
+
+# ── Zeek (network security monitor) ─────────────────────────────────────────
+RUN echo 'deb http://download.opensuse.org/repositories/security:/zeek/xUbuntu_22.04/ /' \
+    > /etc/apt/sources.list.d/zeek.list && \
+    curl -fsSL https://download.opensuse.org/repositories/security:zeek/xUbuntu_22.04/Release.key \
+    | gpg --dearmor > /etc/apt/trusted.gpg.d/zeek.gpg && \
+    apt-get update && apt-get install -y --no-install-recommends zeek && \
+    rm -rf /var/lib/apt/lists/* || echo "Zeek install skipped — will use tshark instead"
+
+ENV PATH="/opt/zeek/bin:${PATH}"
+
+# ── Python-based security tools (inside container) ──────────────────────────
+RUN pip3 install --no-cache-dir \
+    # YARA Python bindings
+    yara-python \
+    # PE file analysis
+    pefile \
+    # Office document analysis
+    oletools \
+    # Volatility 3 (memory forensics)
+    volatility3 \
+    # Sigma rules
+    pySigma \
+    # Network tools
+    scapy \
+    dpkt
+
+# ── YARA community rules ────────────────────────────────────────────────────
+RUN mkdir -p /opt/yara-rules && \
+    git clone --depth 1 https://github.com/Yara-Rules/rules.git /opt/yara-rules 2>/dev/null || true
+
+# ── Non-root user for running tools ─────────────────────────────────────────
+RUN useradd -m -s /bin/bash analyst
+USER analyst
+WORKDIR /home/analyst/workspace
+
+# Default: drop into bash
+CMD ["/bin/bash"]

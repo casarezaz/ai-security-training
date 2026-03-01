@@ -1,0 +1,4 @@
+File Integrity Alert — Mon Feb 23 23:36:03 PST 2026
+=========================
+
+  MODIFIED: /Users/angie/Library/LaunchAgents/com.aiml-cybersecurity.daily-scan.plist (expected: 25990c9286e4d35b..., got: 4feccff20c41cc6d...)

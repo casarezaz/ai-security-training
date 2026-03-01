@@ -1,0 +1,61 @@
+==============================================
+Daily Security Scan — 2026-02-24 00:07:17
+Host: Angies-MacBook-Air.local
+macOS: 26.3 (arm64)
+==============================================
+
+--- Listening Services ---
+ALERT: Unexpected listener: Google:[::1]:7679
+ALERT: Unexpected listener: rapportd:*:60215
+--- Process Audit ---
+OK: No unauthorized nmap activity
+OK: No unauthorized offensive tools running
+OK: No processes running from /tmp
+OK: Process signature check OK
+--- Sharing Services ---
+OK: AirPlay Receiver not active
+OK: No active AirPlay/screen mirroring connections
+OK: Screen Sharing not listening
+OK: Remote Desktop not active
+OK: SSH server not running
+OK: Internet Sharing not active
+OK: Printer Sharing disabled
+OK: Bluetooth PAN not active
+--- Malicious Service Detection ---
+OK: No connections on known backdoor ports
+OK: No suspicious high-CPU processes
+OK: No unexpected accessibility access grants
+OK: No user cron jobs
+OK: No unexpected network-binding processes
+Processes with launchd as parent (informational): 10
+OK: All launch agents match known vendors
+OK: No suspicious hidden files in temp/persistence locations
+--- File Integrity ---
+OK: File integrity check passed
+--- Docker Security ---
+OK: No privileged containers running
+Running containers: 1
+Docker audit:             "Hard": 4096,
+            "Soft": 2048
+        }
+    }
+}
+--- Dependency Scan ---
+Dependency scan skipped (pip-audit not installed)
+OK: Dependency scan skipped
+--- Login Items ---
+User agents: 3 | System agents: 3 | System daemons: 5
+OK: Login items audit completed
+--- Firewall ---
+OK: macOS firewall is enabled
+--- Network Connections ---
+Established connections: 5
+OK: No connections on unusual ports
+--- Login Attempts ---
+OK: No failed login attempts in last 24 hours
+--- Image Scan ---
+OK: Image docker-sectools:latest — no critical vulnerabilities
+
+==============================================
+  Summary: 12 checks | 27 passed | 2 alerts
+==============================================

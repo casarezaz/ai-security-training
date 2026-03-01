@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Wrapper: runs zeek inside the security Docker container
+# Usage: ./scripts/wrappers/zeek [args...]
+CONTAINER="aiml-sectools"
+if ! docker ps --format '{{.Names}}' | grep -q "^$CONTAINER$"; then
+    echo "Starting security container..."
+    cd "$HOME/aiml-cybersecurity/docker" && docker compose up -d sectools
+fi
+docker exec -it $CONTAINER zeek  "$@"

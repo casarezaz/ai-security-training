@@ -1,0 +1,4 @@
+macOS Hardening Report - Mon Feb 23 22:45:29 PST 2026
+System: macOS 26.3 (arm64)
+
+Passed: 21 | Failed: 0 | Warnings: 4 | Changed: 2

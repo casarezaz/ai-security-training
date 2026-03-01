@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Wrapper: runs vol3 inside the security Docker container
+# Usage: ./scripts/wrappers/vol3 [args...]
+CONTAINER="aiml-sectools"
+if ! docker ps --format '{{.Names}}' | grep -q "^$CONTAINER$"; then
+    echo "Starting security container..."
+    cd "$HOME/aiml-cybersecurity/docker" && docker compose up -d sectools
+fi
+docker exec -it $CONTAINER vol3 python3 -m volatility3 "$@"

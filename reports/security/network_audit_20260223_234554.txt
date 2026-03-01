@@ -1,0 +1,37 @@
+Network Audit — Mon Feb 23 23:45:54 PST 2026
+==============================================
+
+--- All Outbound Connections ---
+Claude                    29936    angie    192.168.12.112:61026->160.79.104.10:443
+Claude                    29936    angie    192.168.12.112:61028->160.79.104.10:443
+Claude                    29936    angie    192.168.12.112:61032->160.79.104.10:443
+Claude                    29941    angie    192.168.12.112:60214->160.79.104.10:443
+Claude                    29941    angie    192.168.12.112:61030->52.2.231.222:443
+Google                    1796     angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60951->[2607:f8b0:4007:80e::200a]:443
+Google                    1796     angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60998->[2001:4860:4802:36::223]:443
+Google                    27410    angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60801->[2607:6bc0::10]:443
+Google                    27410    angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:61004->[2600:1406:5e00:591::1aca]:443
+Google                    27410    angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:61007->[2600:1406:5e00:591::1aca]:443
+Google                    27410    angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:61008->[2600:1406:3a00:98b::2a1]:443
+Google                    27410    angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:61009->[2620:149:a21:f000::137]:443
+--- Proxy Bypass Check ---
+--- DNS Check ---
+--- Tunnel Detection ---
+Tunnel interface: utun0
+Tunnel interface: utun1
+Tunnel interface: utun2
+Tunnel interface: utun3
+--- High Port Check ---
+--- Process Destination Map ---
+  7 connections: Google
+  5 connections: Claude
+--- Little Snitch ---
+--- Network Interfaces ---
+Interface: lo0: 127.0.0.1 ()
+Interface: en0: 192.168.12.112 (active)
+--- Exfiltration Check ---
+Direct IP: Claude → 192.168.12.112:60214->160.79.104.10:443
+Direct IP: Claude → 192.168.12.112:61026->160.79.104.10:443
+Direct IP: Claude → 192.168.12.112:61028->160.79.104.10:443
+Direct IP: Claude → 192.168.12.112:61030->52.2.231.222:443
+Direct IP: Claude → 192.168.12.112:61032->160.79.104.10:443

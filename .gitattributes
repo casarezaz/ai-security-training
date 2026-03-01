@@ -1,0 +1,29 @@
+# Auto-detect text files and normalize line endings
+* text=auto
+
+# Force these to always be treated as text
+*.py text diff=python
+*.md text
+*.yaml text
+*.yml text
+*.json text
+*.toml text
+*.cfg text
+*.ini text
+*.sh text eol=lf
+
+# Binary files — track but don't diff
+*.pkl binary
+*.h5 binary
+*.hdf5 binary
+*.pt binary
+*.pth binary
+*.onnx binary
+*.safetensors binary
+*.pcap binary
+*.pcapng binary
+
+# Never track these (defense in depth with .gitignore)
+*.env filter=clean-env
+*.key filter=clean-key
+*.pem filter=clean-key

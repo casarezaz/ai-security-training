@@ -1,0 +1,45 @@
+==============================================
+System Security Audit — 2026-02-23 22:53:06
+Mode: --quick
+Host: Angies-MacBook-Air.local
+macOS: 26.3 (arm64)
+==============================================
+
+Hostname: Angies-MacBook-Air.local
+macOS: 26.3 (Build 25D125)
+Kernel: 25.3.0
+Arch: arm64
+Uptime:  6:10
+Current User: angie
+Admin Group:  root _mbsetupuser angie
+SIP: System Integrity Protection status: enabled.
+Gatekeeper: assessments enabled
+FileVault: FileVault is On.
+Firewall: Firewall is enabled. (State = 1)
+Stealth Mode: Firewall stealth mode is on
+--- Listening Services ---
+  Google               angie    [::1]:7679
+  rapportd             angie    *:60215
+--- Established Connections ---
+Total: 9
+  Claude               angie    192.168.12.112:60214->160.79.104.10:443
+  Claude               angie    192.168.12.112:60330->160.79.104.10:443
+  Claude               angie    192.168.12.112:60332->160.79.104.10:443
+  Google               angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60251->[2607:f8b0:4023:2007::5f]:443
+  Google               angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60322->[2607:f8b0:4007:80f::200a]:443
+  Google               angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60323->[2607:f8b0:4007:810::200a]:443
+  Google               angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60324->[2607:f8b0:4007:811::200a]:443
+  Google               angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60325->[2607:f8b0:4007:803::200a]:443
+  itunesclo            angie    [2607:fb91:4185:2725:ad94:697a:d333:73f2]:60328->[2a04:4e42::774]:443
+--- User Accounts ---
+  angie
+  daemon
+  nobody
+--- SSH ---
+--- File Permissions ---
+~/.ssh directory: 700 (expected 700)
+SSH private key: 600 (expected 600)
+SSH config: 600 (expected 644)
+.env file: 600 (expected 600)
+Docker daemon.json: 644 (expected 644)
+GPG directory: 700 (expected 700)

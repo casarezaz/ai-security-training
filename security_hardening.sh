@@ -39,8 +39,7 @@ else
     ok "SSH key generated"
 fi
 
-# Start ssh-agent and add key
-eval "$(ssh-agent -s)" > /dev/null 2>&1
+# Add key to macOS Keychain (no need to start a new agent — macOS launchd handles it)
 ssh-add --apple-use-keychain "$SSH_KEY" 2>/dev/null || ssh-add "$SSH_KEY" 2>/dev/null
 
 # Add to GitHub
