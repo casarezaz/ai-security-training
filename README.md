@@ -6,7 +6,7 @@ A comprehensive, hands-on training curriculum built at the intersection of artif
 
 This project addresses the critical global shortage of **3.4 million cybersecurity professionals**, specifically targeting the scarce niche of specialists who can both build intelligent defense systems and secure the AI systems organizations deploy.
 
-**Estimated Duration:** 200–275+ hours across 16+ weeks
+**Estimated Duration:** 225–300+ hours across 17+ weeks
 **Skill Levels:** Beginner → Intermediate → Advanced
 **Author:** Angie Casarez-Agee, CISSP | GCIH | GSEC
 
@@ -20,7 +20,7 @@ This project addresses the critical global shortage of **3.4 million cybersecuri
 | **Track B** | Securing AI Systems | Defending against adversarial attacks, model supply chain threats, and LLM vulnerabilities |
 | **Track C** | Capstone Integration | End-to-end projects combining both disciplines |
 
-### 12 Hands-On Lab Projects
+### 13 Hands-On Lab Projects
 
 | # | Project | Difficulty | Hours |
 |---|---------|-----------|-------|
@@ -36,6 +36,22 @@ This project addresses the critical global shortage of **3.4 million cybersecuri
 | 10 | Detection Engineering with ML | Intermediate | 14–18 |
 | 11 | AI-Powered SOC Analyst Assistant | Advanced | 20–25 |
 | 12 | Capstone: Full Integration | Advanced | 18–22 |
+| 13 | AI Inference Infrastructure Security | Advanced | 12–16 |
+
+#### Project 1: Detailed Session Guides
+
+Project 1 (Network Intrusion Detection) includes step-by-step session guides with code, security insight callouts, and hands-on exercises:
+
+| Session | Topic | Hours |
+|---------|-------|-------|
+| Session 0 | Environment Setup — Python, PyTorch MPS, CICIDS2017 dataset | 2–3 |
+| Session 1 | Data Exploration & Cleaning — Feature understanding, formatting fixes, label mapping | 3–4 |
+| Session 2 | Feature Engineering & Classical ML — Random Forest, XGBoost, class imbalance handling | 3–4 |
+| Session 3 | Deep Learning — 1D-CNN, autoencoder for zero-day detection | *Coming soon* |
+
+#### Lab 13: AI Inference Infrastructure Security
+
+A new lab exploring the intersection of application acceleration and adversarial security testing. Attacks and defends AI inference infrastructure across OSI layers — from network-layer disruption to KV cache poisoning to GPU memory exhaustion. Includes MITRE ATT&CK and ATLAS mappings, Sigma detection rules, and hardened deployment patterns.
 
 ### 5 Theoretical Study Guides
 
@@ -57,7 +73,7 @@ Simulated organizational challenges that test decision-making across both discip
 | **Phase 2** | 5–8 | Core Skills — Malware analysis, threat intel, Projects 2 & 5 |
 | **Phase 3** | 9–12 | AI Security — Adversarial ML, model security, Projects 6 & 7 |
 | **Phase 4** | 13–16 | Advanced — LLM security, privacy, Projects 8, 9 & 10 |
-| **Phase 5** | 17+ | Capstone & Differentiation — Projects 11 & 12 |
+| **Phase 5** | 17+ | Capstone & Differentiation — Projects 11, 12 & 13 |
 
 ## Career Paths
 
@@ -68,6 +84,7 @@ This curriculum prepares learners for high-demand roles including:
 - Detection Engineer
 - LLM Security Specialist
 - AI-Powered SOC Analyst
+- AI Infrastructure Security Engineer
 
 ## Setup
 
@@ -83,22 +100,23 @@ ai-security-training/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── data/                          # Datasets (not tracked in git)
-│   ├── raw/                       # Original datasets
-│   ├── processed/                 # Cleaned / feature-engineered
-│   └── external/                  # Third-party reference data
-├── notebooks/                     # Jupyter notebooks
-├── src/                           # Python source code
-│   ├── common/                    # Shared utilities
-│   ├── project1_nids/             # Network IDS project
-│   └── project4_phishing/         # Phishing detection project
-├── models/                        # Saved model weights (gitignored)
-├── configs/                       # Configuration files
-├── scripts/                       # Setup & hardening scripts
-├── docker/                        # Docker configurations
-├── docs/                          # Study guides & scenario docs
-├── reports/                       # Generated analysis & figures
-└── tests/                         # Unit tests
+├── data/                    # Datasets (not tracked in git)
+│   ├── raw/                 # Original datasets
+│   ├── processed/           # Cleaned / feature-engineered
+│   └── external/            # Third-party reference data
+├── notebooks/               # Jupyter notebooks
+├── src/                     # Python source code
+│   ├── common/              # Shared utilities
+│   ├── project1_nids/       # Network IDS project
+│   └── project4_phishing/   # Phishing detection project
+├── models/                  # Saved model weights (gitignored)
+├── configs/                 # Configuration files
+├── scripts/                 # Setup & hardening scripts
+├── docker/                  # Docker configurations
+├── docs/                    # Study guides, scenario docs & session guides
+│   └── projects/            # Project specs + detailed session guides (.docx)
+├── reports/                 # Generated analysis & figures
+└── tests/                   # Unit tests
 ```
 
 ## Frameworks & Standards Alignment
